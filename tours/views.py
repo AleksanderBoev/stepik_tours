@@ -1,11 +1,13 @@
 from django.shortcuts import render
 import stepic_tours.data as data
-
+from random import choices
 
 # Create your views here.
 def main_view(request):
-
-    return render(request, 'index.html')
+    tours = choices(list(data.tours.items()), k=6)
+    tours = dict(tours)
+    return render(request, 'index.html', {'tours': tours,
+                                          })
 
 
 def departure_view(request, departure):
