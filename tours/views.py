@@ -27,7 +27,7 @@ def departure_view(request, departure):
                 min_nights = inf['nights']
             if inf['nights'] > max_nights:
                 max_nights = inf['nights']
-    return render(request, 'departure.html', {'tours': tours,
+    return render(request, 'departure/departure.html', {'tours': tours,
                                               'count': len(tours),
                                               'min_nights': min_nights,
                                               'max_nights': max_nights,
@@ -40,4 +40,4 @@ def tour_view(request, idtour=None):
     selected_tour = data.tours[idtour].copy()
     selected_tour['departure'] = data.departures[data.tours[idtour]['departure']]  # get and replace departure
     selected_tour['stars'] = '★' * int(data.tours[idtour]['stars'])  # get str with stars
-    return render(request, 'tour.html', selected_tour)
+    return render(request, 'tour/tour.html', selected_tour)
