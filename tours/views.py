@@ -27,13 +27,15 @@ def departure_view(request, departure):
                 min_nights = inf['nights']
             if inf['nights'] > max_nights:
                 max_nights = inf['nights']
+    print(data.departures[departure])
     return render(request, 'departure/departure.html', {'tours': tours,
-                                              'count': len(tours),
-                                              'min_nights': min_nights,
-                                              'max_nights': max_nights,
-                                              'min_price': min_price,
-                                              'max_price': max_price,
-                                              })
+                                                        'count': len(tours),
+                                                        'min_nights': min_nights,
+                                                        'max_nights': max_nights,
+                                                        'min_price': min_price,
+                                                        'max_price': max_price,
+                                                        'dep': data.departures[departure],
+                                                        })
 
 
 def tour_view(request, idtour=None):

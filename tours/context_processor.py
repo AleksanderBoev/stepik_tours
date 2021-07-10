@@ -4,4 +4,5 @@ def statistics(request):
         'title_': data.title,
         'subtitle_': data.subtitle,
         'description_': data.description,
+        'departures_': data.departures,
     }
